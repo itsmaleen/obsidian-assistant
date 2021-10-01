@@ -8,6 +8,8 @@ import traceback
 from dotenv import load_dotenv
 from nio import AsyncClient, MatrixRoom, RoomMessageText
 
+from intents.goals import getGoalsOfDay
+
 load_dotenv()
 PROG_WITHOUT_EXT = os.path.splitext(os.path.basename(__file__))[0]
 
@@ -63,26 +65,25 @@ class Callbacks(object):
             )
 
             if event.sender == "@itsmaleen:matrix.org":
-                await self.client.room_send(
-                    # Watch out! If you join an old room you'll see lots of old messages
-                    room_id=room.room_id,
-                    message_type="m.room.message",
-                    content={
-                        "msgtype": "m.text",
-                        "body": "Hello world!"
-                    }
-                )
+                if event.body == "1":
+                    goals = getGoalsOfDay("2021-09-29")
+                    await self.client.room_send(
+                        # Watch out! If you join an old room you'll see lots of old messages
+                        room_id=room.room_id,
+                        message_type="m.room.message",
+                        content={
+                            "msgtype": "m.text",
+                            "body": goals
+                        }
+                    )
+                    print("done")
+
 
         except BaseException:
             logger.debug(traceback.format_exc())
 
 
 if __name__ == "__main__":
-    logging.basicConfig(  # initialize root logger, a must
-        format="{asctime}: {levelname:>8}: {name:>16}: {message}", style="{"
-    )
-    logging.getLogger().setLevel(logging.INFO)
-
     logger = logging.getLogger(PROG_WITHOUT_EXT)
     asyncio.run(main())
     sys.exit(1)

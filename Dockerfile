@@ -55,6 +55,8 @@ RUN /scripts/build_and_install_libolm.sh ${LIBOLM_VERSION} /python-libs
 # We again install to /python-libs
 RUN pip install --prefix="/python-libs" --no-warn-script-location \
     "matrix-nio[e2e]"
+RUN pip install --prefix="/python-libs" --no-warn-script-location \
+    "python-dotenv"
 
 ##
 ## Creating the runtime container
