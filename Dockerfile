@@ -47,9 +47,6 @@ RUN apk add --no-cache \
 # We will later copy contents from both of these folders to the runtime container
 COPY build_and_install_libolm.sh /scripts/
 RUN /scripts/build_and_install_libolm.sh ${LIBOLM_VERSION} /python-libs
-# Add env variables
-#COPY env.sh /scripts/
-#RUN /scripts/env.sh
 
 # Now that libolm is installed, install matrix-nio with e2e dependencies
 # We again install to /python-libs
@@ -57,6 +54,8 @@ RUN pip install --prefix="/python-libs" --no-warn-script-location \
     "matrix-nio[e2e]"
 RUN pip install --prefix="/python-libs" --no-warn-script-location \
     "python-dotenv"
+#RUN pip install --prefix="/python-libs" --no-warn-script-location \
+#    "rasa"
 
 ##
 ## Creating the runtime container
