@@ -90,3 +90,11 @@ nlu:
     - are you a human?
     - am I talking to a bot?
     - am I talking to a human?
+
+- intent: time_reminder
+  examples: |
+    - Remind me at [time]
+    - Come back for [time]
+    - Let me know at [time]
+    - Tell me at [time]
+    - Come back at [time]

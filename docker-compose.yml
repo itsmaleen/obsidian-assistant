@@ -1,0 +1,34 @@
+version: "3.9"
+
+services:
+  assistant:
+    build: "./assistant"
+  duckling:
+    image: rasa/duckling:latest
+    ports:
+      - "8000:8000"
+  rasa_train:
+    image: rasa/rasa:latest-full
+    volumes:
+      - ./rasa:/app
+    command:
+#      - bash -c "rasa train nlu --domain /app/rasa/domain.yml --data /app/rasa/data --out /app/rasa/models
+#        && rasa run --model /app/rasa/models"
+      - train
+    depends_on:
+      - duckling
+  rasa_run:
+    image: rasa/rasa:latest-full
+    volumes:
+      - ./rasa:/app
+    ports:
+      - "5005:5005"
+    command:
+      - run
+      - --model
+      - "/app/models"
+      - --log-file
+      - out.log
+    depends_on:
+      - duckling
+      - rasa_train
