@@ -12,7 +12,7 @@ rules:
   - intent: bot_challenge
   - action: utter_iamabot
 
-- rule: Say 'I am a bot' anytime the user challenges
+- rule: Confirm that reminder was understood
   steps:
-  - intent: bot_challenge
-  - action: utter_iamabot
+  - intent: time_reminder
+  - action: utter_reminder_confirmed

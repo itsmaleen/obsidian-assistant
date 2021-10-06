@@ -93,8 +93,13 @@ nlu:
 
 - intent: time_reminder
   examples: |
-    - Remind me at [time]
-    - Come back for [time]
-    - Let me know at [time]
-    - Tell me at [time]
-    - Come back at [time]
+    - Remind me right now
+    - Come back for tomorrow
+    - Let me know on Friday
+    - Tell me at 6pm
+    - Come back at 10am
+#    - Remind me at [time]
+#    - Come back for [time]
+#    - Let me know at [time]
+#    - Tell me at [time]
+#    - Come back at [time]

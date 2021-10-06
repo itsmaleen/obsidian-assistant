@@ -28,3 +28,9 @@ stories:
   - action: utter_did_that_help
   - intent: deny
   - action: utter_goodbye
+
+- story: set a reminder
+  steps:
+  - intent: time_reminder
+  - action: utter_reminder_confirmed
+
