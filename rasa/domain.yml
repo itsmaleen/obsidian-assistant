@@ -7,8 +7,7 @@ intents:
   - deny
   - mood_great
   - mood_unhappy
-  - bot_challenge
-  - time_reminder
+  - create_reminder
 
 entities:
   - time

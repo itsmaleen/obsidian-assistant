@@ -31,6 +31,6 @@ stories:
 
 - story: set a reminder
   steps:
-  - intent: time_reminder
+  - intent: create_reminder
   - action: utter_reminder_confirmed
 

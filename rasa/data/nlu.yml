@@ -84,16 +84,10 @@ nlu:
     - so saad
     - so sad
 
-- intent: bot_challenge
+- intent: create_reminder
   examples: |
-    - are you a bot?
-    - are you a human?
-    - am I talking to a bot?
-    - am I talking to a human?
-
-- intent: time_reminder
-  examples: |
-    - Remind me right now
+    - Remind me in 2 hours
+    - Remind me in 2hrs
     - Come back for tomorrow
     - Let me know on Friday
     - Tell me at 6pm
