@@ -34,3 +34,8 @@ stories:
   - intent: create_reminder
   - action: utter_reminder_confirmed
 
+- story: get goals
+  steps:
+  - intent: get_all_goals
+  - action: utter_list_goals
+

@@ -16,6 +16,7 @@ nlu:
     - goodmorning
     - goodevening
     - good afternoon
+    - yo
 
 - intent: goodbye
   examples: |
@@ -30,6 +31,7 @@ nlu:
     - see you around
     - bye bye
     - see you later
+    - peace
 
 - intent: affirm
   examples: |
@@ -39,6 +41,10 @@ nlu:
     - of course
     - that sounds good
     - correct
+    - ye
+    - yas
+    - yaaa
+    - yeah
 
 - intent: deny
   examples: |
@@ -49,6 +55,8 @@ nlu:
     - don't like that
     - no way
     - not really
+    - na
+    - nahh
 
 - intent: mood_great
   examples: |
@@ -92,8 +100,12 @@ nlu:
     - Let me know on Friday
     - Tell me at 6pm
     - Come back at 10am
-#    - Remind me at [time]
-#    - Come back for [time]
-#    - Let me know at [time]
-#    - Tell me at [time]
-#    - Come back at [time]
+
+- intent: get_all_goals
+  examples: |
+    - What do I need to do today
+    - What did I need to do yesterday?
+    - Do I have anything to do for Thursday
+    - Is there any work to do on Saturday
+    - What's on my list for Sunday
+    - Can you let me know what I have to do tomorrow?
