@@ -7,7 +7,6 @@ intents:
   - deny
   - mood_great
   - mood_unhappy
-  - create_reminder
   - get_all_goals
 
 entities:
@@ -37,11 +36,11 @@ responses:
   utter_iamabot:
   - text: "I am a bot, powered by Rasa."
 
-  utter_reminder_confirmed:
-  - text: Great. I'll see you at {time}!
-
   utter_list_goals:
   - text: Sure!. Here is the list for {time}!
+
+actions:
+  - action_list_goals
 
 session_config:
   session_expiration_time: 60

@@ -1,23 +1,39 @@
 version: "3.9"
 
 services:
-  assistant:
-    build: "./assistant"
+  knowledge-interaction:
+    build: "./knowledge-interaction"
+    ports:
+      - "5000:5000"
+  messenger:
+    build: "./messenger"
   duckling:
     image: rasa/duckling:latest
     ports:
       - "8000:8000"
-  rasa_train:
+#  FIXME: rasa_action not working
+  rasa-action-server:
+    image: rasa/rasa-sdk
+    volumes:
+      - ./rasa:/app
+    ports:
+      - "5055:5055"
+    command:
+      - actions
+    depends_on:
+      - duckling
+  rasa-train:
     image: rasa/rasa:latest-full
     volumes:
       - ./rasa:/app
     command:
+#      TODO: remove this
 #      - bash -c "rasa train nlu --domain /app/rasa/domain.yml --data /app/rasa/data --out /app/rasa/models
 #        && rasa run --model /app/rasa/models"
       - train
     depends_on:
       - duckling
-  rasa_run:
+  rasa-run:
     image: rasa/rasa:latest-full
     volumes:
       - ./rasa:/app

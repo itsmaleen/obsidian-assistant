@@ -7,7 +7,7 @@ rules:
   - intent: goodbye
   - action: utter_goodbye
 
-- rule: Confirm that reminder was understood
+- rule: Send goals for specific date
   steps:
-  - intent: create_reminder
-  - action: utter_reminder_confirmed
+  - intent: get_all_goals
+  - action: action_list_goals

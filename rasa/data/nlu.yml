@@ -92,15 +92,6 @@ nlu:
     - so saad
     - so sad
 
-- intent: create_reminder
-  examples: |
-    - Remind me in 2 hours
-    - Remind me in 2hrs
-    - Come back for tomorrow
-    - Let me know on Friday
-    - Tell me at 6pm
-    - Come back at 10am
-
 - intent: get_all_goals
   examples: |
     - What do I need to do today
