@@ -11,7 +11,6 @@ services:
     image: rasa/duckling:latest
     ports:
       - "8000:8000"
-#  FIXME: rasa_action not working
   rasa-action-server:
     image: rasa/rasa-sdk
     volumes:
@@ -19,6 +18,7 @@ services:
     ports:
       - "5055:5055"
     command:
+      - run
       - actions
     depends_on:
       - duckling
@@ -27,9 +27,6 @@ services:
     volumes:
       - ./rasa:/app
     command:
-#      TODO: remove this
-#      - bash -c "rasa train nlu --domain /app/rasa/domain.yml --data /app/rasa/data --out /app/rasa/models
-#        && rasa run --model /app/rasa/models"
       - train
     depends_on:
       - duckling
@@ -47,4 +44,4 @@ services:
       - out.log
     depends_on:
       - duckling
-      - rasa_train
+      - rasa-train

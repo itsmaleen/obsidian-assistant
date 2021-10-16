@@ -18,8 +18,8 @@ class ActionListGoals(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         time = tracker.get_slot("time")
         time_object = dt.strptime(time, "%Y-%m-%dT%H:%M:%S.%f%z")
-        time_object.date()
-        response = requests.get('http://localhost:5000/goals',
+        # Use docker container name
+        response = requests.get('http://knowledge-interaction:5000/goals',
                                 data={'date': time_object.strftime("%Y-%m-%d")})
 
         print(response.status_code)
